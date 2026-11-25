@@ -1,0 +1,13 @@
+{
+  "name": "liturgie-paroisse",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Текст воскресной литургии на церковнославянском и французском по QR-коду",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "qr": "node scripts/make-qr.mjs"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}
