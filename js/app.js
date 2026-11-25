@@ -117,9 +117,10 @@
       out.push(variable("choir", saint.troparion.cs, saint.troparion.fr));
     }
 
+    const templeKontakion = temple.kontakion && { l: t(`Кондак храма, глас ${temple.kontakion.tone}`, `Kondakion de l’église, ton ${temple.kontakion.tone}`), x: temple.kontakion };
     const kontakia = [];
     if (tone) kontakia.push({ l: t(`Кондак воскресный, глас ${tone}`, `Kondakion de la Résurrection, ton ${tone}`), x: OCT[tone].kontakion });
-    if (temple.kontakion) kontakia.push({ l: t(`Кондак храма, глас ${temple.kontakion.tone}`, `Kondakion de l’église, ton ${temple.kontakion.tone}`), x: temple.kontakion });
+    if (templeKontakion && !temple.theotokos) kontakia.push(templeKontakion);
     if (saint && saint.kontakion) kontakia.push({ l: t(`Кондак, глас ${saint.kontakion.tone}: ${saint.name.cs}`, `Kondakion, ton ${saint.kontakion.tone} : ${saint.name.fr}`), x: saint.kontakion });
 
     kontakia.forEach((k, i) => {
@@ -128,8 +129,11 @@
       out.push(variable("choir", k.x.cs, k.x.fr));
     });
     out.push(variable("rubric", kontakia.length ? "И ныне и присно и во веки веков. Аминь." : "Слава, и ныне.", kontakia.length ? "Maintenant et toujours et aux siècles des siècles. Amen." : "Gloire… Maintenant…"));
-    out.push(label("Кондак Богородичен, глас 6", "Kondakion de la Mère de Dieu, ton 6"));
-    out.push(variable("choir", COMMON.theotokosKontakion.cs, COMMON.theotokosKontakion.fr));
+    const last = templeKontakion && temple.theotokos
+      ? templeKontakion
+      : { l: t("Кондак Богородичен, глас 6", "Kondakion de la Mère de Dieu, ton 6"), x: COMMON.theotokosKontakion };
+    out.push(label(last.l.cs, last.l.fr));
+    out.push(variable("choir", last.x.cs, last.x.fr));
     return out;
   }
 
@@ -193,7 +197,8 @@
   }
 
   function buildDismissal(info, ov) {
-    const saint = ov.saint ? t(`святаго ${ov.saint.name.cs}, `, `de ${ov.saint.name.fr}, `) : t("", "");
+    const d = ov.saint && (ov.saint.dismissal || t(`святаго ${ov.saint.name.cs}`, `de ${ov.saint.name.fr}`));
+    const saint = d ? t(d.cs + ", ", d.fr + ", ") : t("", "");
     if (info.useTone && info.tone) {
       return [variable("priest",
         `Воскресый из мертвых Христос, истинный Бог наш, молитвами Пречистыя Своея Матере, святых славных и всехвальных апостол, ${saint.cs}и всех святых, помилует и спасет нас, яко Благ и Человеколюбец.`,
@@ -271,7 +276,7 @@
     const warn = complete ? "" : `<p class="warning"><span class="cs">Особый день: тропари, кондаки и другие изменяемые песнопения этого дня ещё не внесены полностью. Регенту — проверить по Минее/Триоди и дополнить в data/overrides.js.</span><span class="fr">Jour particulier : les chants propres de ce jour ne sont pas encore tous saisis. À vérifier et compléter dans data/overrides.js.</span></p>`;
     const refs = `<p class="refs"><span class="cs">Апостол: ${esc(Rd.label(readings.apostle, "cs"))} · Евангелие: ${esc(Rd.label(readings.gospel, "cs"))}</span><span class="fr">Épître : ${esc(Rd.label(readings.apostle, "fr"))} · Évangile : ${esc(Rd.label(readings.gospel, "fr"))}</span></p>`;
     return `
-      <p class="parish"><span class="cs">${esc(CFG.name.cs)}</span><span class="fr">${esc(CFG.name.fr)}</span></p>
+      <p class="parish"><a href="${esc(CFG.website || "#")}"><span class="cs">${esc(CFG.name.cs)}</span><span class="fr">${esc(CFG.name.fr)}</span></a></p>
       <p class="date"><span class="cs">${esc(fmtDate(info.date, "ru-RU"))}</span><span class="fr">${esc(fmtDate(info.date, "fr-FR"))}</span></p>
       <h1><span class="cs">${esc(info.title.cs)}${tone ? ", " + tone.cs : ""}</span><span class="fr">${esc(info.title.fr)}${tone ? ", " + tone.fr : ""}</span></h1>
       ${sub}${saint}${refs}${warn}${notes}`;
