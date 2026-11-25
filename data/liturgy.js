@@ -10,7 +10,7 @@
   const C = (cs, fr) => ({ kind: "choir", cs, fr });
   const slot = (name) => ({ kind: "slot", name });
 
-  const lordHaveMercy = C("Господи, помилуй.", "Seigneur, aie pitié.");
+  const lordHaveMercy = C("Господи, помилуй.", "Kyrie eleison.");
   const grantLord = C("Подай, Господи.", "Accorde-le, Seigneur.");
   const amen = C("Аминь.", "Amen.");
   const andThySpirit = C("И духови твоему.", "Et avec ton esprit.");
@@ -60,7 +60,7 @@
     D("О благорастворении воздухов, о изобилии плодов земных и временех мирных Господу помолимся.", "Pour la clémence du temps, l’abondance des fruits de la terre et des temps de paix, prions le Seigneur."),
     D("О плавающих, путешествующих, недугующих, страждущих, плененных и о спасении их Господу помолимся.", "Pour ceux qui naviguent, qui voyagent, pour les malades, les souffrants, les captifs, et pour leur salut, prions le Seigneur."),
     D("О избавитися нам от всякия скорби, гнева и нужды Господу помолимся.", "Pour que nous soyons délivrés de toute affliction, colère et détresse, prions le Seigneur."),
-    r("На каждое прошение хор отвечает: «Господи, помилуй».", "À chaque demande, le chœur répond : « Seigneur, aie pitié »."),
+    r("На каждое прошение хор отвечает: «Господи, помилуй».", "À chaque demande, le chœur répond : « Kyrie eleison »."),
     ...littleLitany.slice(2),
     P("Яко подобает Тебе всякая слава, честь и поклонение, Отцу и Сыну и Святому Духу, ныне и присно и во веки веков.", "Car à toi conviennent toute gloire, tout honneur et toute adoration, Père, Fils et Saint-Esprit, maintenant et toujours et aux siècles des siècles."),
     amen,
@@ -117,13 +117,13 @@
     D("Господи Вседержителю, Боже отец наших, молим Ти ся, услыши и помилуй.", "Seigneur tout-puissant, Dieu de nos pères, nous te prions, exauce-nous et aie pitié."),
     lordHaveMercy,
     D("Помилуй нас, Боже, по велицей милости Твоей, молим Ти ся, услыши и помилуй.", "Aie pitié de nous, ô Dieu, selon ta grande miséricorde, nous te prions, exauce-nous et aie pitié."),
-    C("Господи, помилуй. (Трижды)", "Seigneur, aie pitié. (3 fois)"),
+    C("Господи, помилуй. (Трижды)", "Kyrie eleison. (3 fois)"),
     D("Еще молимся о Вселенском Патриархе нашем {patriarch_prep}, о {bishop_prep} и о всей во Христе братии нашей.", "Prions encore pour notre Patriarche œcuménique {patriarch_fr}, pour {bishop_fr} et pour tous nos frères dans le Christ."),
     D("Еще молимся о стране сей, властех и воинстве ея, да тихое и безмолвное житие поживем во всяком благочестии и чистоте.", "Prions encore pour ce pays, ses autorités et ceux qui le protègent, afin que nous menions une vie calme et paisible, en toute piété et dignité."),
     D("Еще молимся о блаженных и приснопамятных создателех святаго храма сего, и о всех преждепочивших отцех и братиях наших, зде лежащих и повсюду, православных.", "Prions encore pour les bienheureux et inoubliables fondateurs de ce saint temple, et pour tous nos pères et frères orthodoxes défunts, qui reposent ici et en tout lieu."),
     D("Еще молимся о милости, жизни, мире, здравии, спасении, посещении, прощении и оставлении грехов рабов Божиих, братии святаго храма сего.", "Prions encore pour la miséricorde, la vie, la paix, la santé, le salut, la visite, le pardon et la rémission des péchés des serviteurs de Dieu, frères de ce saint temple."),
     D("Еще молимся о плодоносящих и добродеющих во святем и всечестнем храме сем, труждающихся, поющих и предстоящих людех, ожидающих от Тебе великия и богатыя милости.", "Prions encore pour ceux qui portent des offrandes et font le bien dans ce saint et vénérable temple, pour ceux qui y travaillent et y chantent, et pour le peuple ici présent qui attend de toi une grande et riche miséricorde."),
-    r("На каждое прошение хор отвечает: «Господи, помилуй» (трижды).", "À chaque demande, le chœur répond : « Seigneur, aie pitié » (3 fois)."),
+    r("На каждое прошение хор отвечает: «Господи, помилуй» (трижды).", "À chaque demande, le chœur répond : « Kyrie eleison » (3 fois)."),
     P("Яко милостив и Человеколюбец Бог еси, и Тебе славу возсылаем, Отцу и Сыну и Святому Духу, ныне и присно и во веки веков.", "Car tu es un Dieu miséricordieux et ami des hommes, et nous te rendons gloire, Père, Fils et Saint-Esprit, maintenant et toujours et aux siècles des siècles."),
     amen,
     r("Ектения об оглашенных и ектении верных.", "Litanie des catéchumènes et litanies des fidèles."),
@@ -237,7 +237,7 @@
     P("Благословение Господне на вас, Того благодатию и человеколюбием, всегда, ныне и присно и во веки веков.", "Que la bénédiction du Seigneur soit sur vous, par sa grâce et son amour pour les hommes, en tout temps, maintenant et toujours et aux siècles des siècles."),
     amen,
     P("Слава Тебе, Христе Боже, упование наше, слава Тебе.", "Gloire à toi, ô Christ Dieu, notre espérance, gloire à toi."),
-    C("Слава Отцу и Сыну и Святому Духу, и ныне и присно и во веки веков. Аминь. Господи, помилуй. (Трижды) Благослови.", "Gloire au Père et au Fils et au Saint-Esprit, maintenant et toujours et aux siècles des siècles. Amen. Seigneur, aie pitié. (3 fois) Bénis."),
+    C("Слава Отцу и Сыну и Святому Духу, и ныне и присно и во веки веков. Аминь. Господи, помилуй. (Трижды) Благослови.", "Gloire au Père et au Fils et au Saint-Esprit, maintenant et toujours et aux siècles des siècles. Amen. Kyrie eleison. (3 fois) Bénis."),
     slot("dismissal"),
     amen,
     C("Великаго господина и отца нашего {patriarch_gen}, Архиепископа Константинограда, Новаго Рима, и Вселенскаго Патриарха, {bishop_gen}, настоятеля, братию и прихожан святаго храма сего и вся православныя христианы, Господи, сохрани их на многая лета.",
