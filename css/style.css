@@ -27,7 +27,7 @@ body[data-theme="dark"] {
 
 * { box-sizing: border-box; }
 
-html { scroll-padding-top: 7.5rem; }
+html { scroll-padding-top: calc(var(--nav-h, 120px) + 0.5rem); }
 
 body {
   margin: 0;
@@ -76,7 +76,7 @@ body[data-theme="dark"] .toolbar { background: #3b1513; }
 
 .toc {
   position: sticky;
-  top: 52px;
+  top: var(--toolbar-h, 0px);
   z-index: 9;
   display: flex;
   gap: 0.4rem;
@@ -178,6 +178,10 @@ body[data-theme="light"] .row.label .cell p { color: #8a6417; }
 footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: system-ui, sans-serif; font-size: 0.65em; color: var(--muted); text-align: center; }
 footer .cs, footer .fr { display: block; margin: 0.3rem 0; }
 
+@media (min-width: 721px) {
+  .toc { flex-wrap: wrap; justify-content: center; overflow: visible; }
+}
+
 /* На телефоне языки идут друг под другом */
 @media (max-width: 720px) {
   main { padding: 0.6rem 0.5rem 3rem; }
@@ -188,8 +192,6 @@ footer .cs, footer .fr { display: block; margin: 0.3rem 0; }
   body[data-lang="both"] .row.label .cell.fr { display: none; }
   .toolbar { position: static; gap: 0.35rem 0.5rem; }
   .toolbar button, .toolbar input { min-height: 34px; padding: 0.15rem 0.5rem; font-size: 14px; }
-  .toc { top: 0; }
-  html { scroll-padding-top: 3.2rem; }
 }
 
 @media print {
