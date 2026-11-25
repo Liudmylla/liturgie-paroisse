@@ -324,7 +324,21 @@
     window.addEventListener("popstate", render);
   }
 
+  // Высота закреплённых панелей зависит от ширины экрана и размера шрифта.
+  function measureNav() {
+    const bar = document.querySelector(".toolbar");
+    const toc = document.querySelector(".toc");
+    const barH = getComputedStyle(bar).position === "sticky" ? bar.offsetHeight : 0;
+    const root = document.documentElement.style;
+    root.setProperty("--toolbar-h", barH + "px");
+    root.setProperty("--nav-h", barH + toc.offsetHeight + "px");
+  }
+
   applyPrefs();
   bind();
+  measureNav();
+  new ResizeObserver(measureNav).observe(document.querySelector(".toolbar"));
+  new ResizeObserver(measureNav).observe(document.querySelector(".toc"));
+  window.addEventListener("resize", measureNav);
   render();
 })();
