@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7a1f1f">
+  <title>Божественная литургия — Divine Liturgie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-lang="both" data-theme="light">
+  <div class="toolbar" role="toolbar" aria-label="Настройки / Réglages">
+    <div class="group">
+      <button id="prev" title="Предыдущее воскресенье / Dimanche précédent" aria-label="Предыдущее воскресенье">‹</button>
+      <input id="date-input" type="date" aria-label="Дата / Date">
+      <button id="next" title="Следующее воскресенье / Dimanche suivant" aria-label="Следующее воскресенье">›</button>
+      <button id="today" title="Ближайшее воскресенье / Dimanche prochain">⌂</button>
+    </div>
+    <div class="group">
+      <button data-set-lang="both" title="Оба языка / Les deux langues">Слав · FR</button>
+      <button data-set-lang="cs" title="Только славянский">Слав.</button>
+      <button data-set-lang="fr" title="Français seulement">FR</button>
+    </div>
+    <div class="group">
+      <button id="smaller" title="Мельче / Plus petit" aria-label="Мельче">A−</button>
+      <button id="bigger" title="Крупнее / Plus grand" aria-label="Крупнее">A+</button>
+      <button id="theme" title="Тёмная тема / Thème sombre" aria-label="Тёмная тема">◐</button>
+      <button id="print" title="Печать или PDF / Imprimer ou PDF">PDF</button>
+    </div>
+  </div>
+
+  <nav class="toc" aria-label="Содержание / Sommaire">
+    <a href="#start"><span class="cs">Начало</span><span class="fr">Début</span></a>
+    <a href="#antiphons"><span class="cs">Антифоны</span><span class="fr">Antiennes</span></a>
+    <a href="#troparia"><span class="cs">Тропари</span><span class="fr">Tropaires</span></a>
+    <a href="#apostle"><span class="cs">Апостол</span><span class="fr">Épître</span></a>
+    <a href="#gospel"><span class="cs">Евангелие</span><span class="fr">Évangile</span></a>
+    <a href="#cherubic"><span class="cs">Херувимская</span><span class="fr">Chérubins</span></a>
+    <a href="#creed"><span class="cs">Символ веры</span><span class="fr">Credo</span></a>
+    <a href="#anaphora"><span class="cs">Анафора</span><span class="fr">Anaphore</span></a>
+    <a href="#lordsprayer"><span class="cs">Отче наш</span><span class="fr">Notre Père</span></a>
+    <a href="#communion"><span class="cs">Причастие</span><span class="fr">Communion</span></a>
+    <a href="#dismissal"><span class="cs">Отпуст</span><span class="fr">Renvoi</span></a>
+  </nav>
+
+  <main>
+    <header id="header"></header>
+    <p class="legend">
+      <span class="cs"><span class="swatch"></span> — изменяемые части этого дня</span>
+      <span class="fr"><span class="swatch"></span> — parties propres à ce jour</span>
+    </p>
+    <section id="service" aria-live="polite"></section>
+    <footer>
+      <p><span class="cs">Славянский текст — гражданским шрифтом. Французский перевод литургии — рабочий, требует сверки. Чтения: Елизаветинская Библия и Луи Сегон (1910).</span>
+      <span class="fr">Texte slavon en caractères russes modernes. Traduction française de la Liturgie : version de travail, à relire. Lectures : Bible slavonne d’Élisabeth et Louis Segond (1910).</span></p>
+    </footer>
+  </main>
+
+  <script src="data/config.js"></script>
+  <script src="data/overrides.js"></script>
+  <script src="data/octoechos.js"></script>
+  <script src="data/liturgy.js"></script>
+  <script src="js/readings.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
